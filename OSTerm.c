@@ -2,6 +2,7 @@
 // Spring 2019
 // Author: Youngjoon Yoon
 // May 27th, 2019
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -9,7 +10,7 @@
 typedef struct process{
     int pid;
     int CPU_burstT;
-    int IO_burstT;
+//  int IO_burstT; // IO_burst time은 딱히 사용을 하지 않기 때문에 주석 처리하였음 
     int arrivalT;
     int priority;
     int waitingT;
@@ -34,9 +35,9 @@ int CreateProcess(processes P[]){
         while(P[i].CPU_burstT == 0)
             P[i].CPU_burstT = rand()%16;  // Allocate CPU Burst Time Randomly
         
-        P[i].IO_burstT = rand()%51;
+/*      P[i].IO_burstT = rand()%51;
         while(P[i].IO_burstT == 0)
-            P[i].IO_burstT = rand()%51; // Allocate IO Burst Time Randomly
+            P[i].IO_burstT = rand()%51; // Allocate IO Burst Time Randomly */
         
         P[i].arrivalT = rand()%31; // Allocate Arrival Time Randomly
         
@@ -50,7 +51,8 @@ int CreateProcess(processes P[]){
     
     printf("\n PROC \tCPU\tIO\tA.T.\tPriority");
     for(i=0; i<NumOfProcesses; i++){
-        printf("\n %d\t%d\t%d\t%d\t%d", P[i].pid, P[i].CPU_burstT, P[i].IO_burstT, P[i].arrivalT, P[i].priority);
+//      printf("\n %d\t%d\t%d\t%d\t%d", P[i].pid, P[i].CPU_burstT, P[i].IO_burstT, P[i].arrivalT, P[i].priority);
+        printf("\n %d\t%d\t%d\t%d", P[i].pid, P[i].CPU_burstT, P[i].arrivalT, P[i].priority);
     }
     
     return NumOfProcesses;
