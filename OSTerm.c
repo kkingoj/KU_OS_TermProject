@@ -50,6 +50,8 @@ int CreateProcess(processes P[]){
     P[0].arrivalT = 0;
     
     printf("\n PROC \tCPU\tA.T.\tPriority");
+//  printf("\n PROC \tCPU\tIO\tA.T.\tPriority");
+
     for(i=0; i<NumOfProcesses; i++){
 //      printf("\n %d\t%d\t%d\t%d\t%d", P[i].pid, P[i].CPU_burstT, P[i].IO_burstT, P[i].arrivalT, P[i].priority);
         printf("\n %d\t%d\t%d\t%d", P[i].pid, P[i].CPU_burstT, P[i].arrivalT, P[i].priority);
